@@ -25,14 +25,21 @@ module.exports = {
     {
       method: "shell.run",
       params: {
-        conda: "temp",
-        venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
-          "conda install -y -c conda-forge libsndfile",
           "pip install gradio devicetorch",
           "pip install ."
         ]
+      }
+    },
+    {
+      when: "{{platform === 'darwin'}}",
+      method: "shell.run",
+      params: {
+        venv: "env",                // Edit this to customize the venv folder path
+        path: "app",
+        conda: "conda_env",
+        message: "conda install -y -c conda-forge libsndfile",
       }
     },
     // libsndfile.dylib handling
@@ -40,7 +47,7 @@ module.exports = {
       when: "{{platform === 'darwin'}}",
       method: "fs.copy",
       params: {
-        src: "{{path.resolve(cwd, 'app/temp/lib/libsndfile.dylib')}}",
+        src: "{{path.resolve(cwd, 'app/conda_env/lib/libsndfile.dylib')}}",
         dest: "{{path.resolve(cwd, 'app/env/lib/python3.10/site-packages/_soundfile_data/libsndfile.dylib')}}",
       }
     },
