@@ -25,6 +25,7 @@ module.exports = {
     {
       method: "shell.run",
       params: {
+        venv: "env",
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
           "pip install gradio devicetorch",
