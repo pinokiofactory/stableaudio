@@ -36,7 +36,6 @@ module.exports = {
       when: "{{platform === 'darwin'}}",
       method: "shell.run",
       params: {
-        venv: "env",                // Edit this to customize the venv folder path
         path: "app",
         conda: "conda_env",
         message: "conda install -y -c conda-forge libsndfile",
