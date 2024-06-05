@@ -5,7 +5,7 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "git clone https://github.com/Stability-AI/stable-audio-tools app",
+          "git clone https://github.com/peanutcocktail/stable-audio-tools app",
         ]
       }
     },
@@ -25,12 +25,22 @@ module.exports = {
     {
       method: "shell.run",
       params: {
+        conda: "temp",
         venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
+          "conda install -y -c conda-forge libsndfile",
           "pip install gradio devicetorch",
-          "pip install -r requirements.txt"
+          "pip install ."
         ]
+      }
+    },
+    // libsndfile.dylib handling
+    {
+      method: "fs.copy",
+      params: {
+        src: "{{path.resolve(cwd, 'app/temp/lib/libsndfile.dylib')}}",
+        dest: "{{path.resolve(cwd, 'app/env/lib/python3.10/site-packages/_soundfile_data/libsndfile.dylib')}}",
       }
     },
     //  Uncomment this step to add automatic venv deduplication (Experimental)
