@@ -5,6 +5,7 @@ module.exports = async (kernel) => {
       PYTORCH_MPS_HIGH_WATERMARK_RATIO: "0.0"
     }
   }
+  console.log("env", env)
   return {
     daemon: true,
     run: [
