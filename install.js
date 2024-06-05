@@ -34,7 +34,7 @@ module.exports = {
       }
     },
     {
-      when: "{{platform === 'darwin'}}",
+      when: "{{platform === 'darwin' && arch === 'arm64'}}",
       method: "shell.run",
       params: {
         path: "app",
