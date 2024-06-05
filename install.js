@@ -44,7 +44,7 @@ module.exports = {
     },
     // libsndfile.dylib handling
     {
-      when: "{{platform === 'darwin'}}",
+      when: "{{platform === 'darwin' && arch === 'arm64'}}",
       method: "fs.copy",
       params: {
         src: "{{path.resolve(cwd, 'app/conda_env/lib/libsndfile.dylib')}}",
