@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
   version: "1.5",
   title: "StableAudio",
-  description: "An Open Source Model for Audio Samples and Sound Design https://stability.ai/news/introducing-stable-audio-open",
+  description: "An Open Source Model for Audio Samples and Sound Design https://github.com/Stability-AI/stable-audio-tools",
   icon: "icon.jpeg",
   menu: async (kernel) => {
     let installing = await kernel.running(__dirname, "install.js")
