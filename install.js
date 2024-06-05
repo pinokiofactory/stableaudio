@@ -43,13 +43,12 @@ module.exports = {
         dest: "{{path.resolve(cwd, 'app/env/lib/python3.10/site-packages/_soundfile_data/libsndfile.dylib')}}",
       }
     },
-    //  Uncomment this step to add automatic venv deduplication (Experimental)
-    //  {
-    //    method: "fs.link",
-    //    params: {
-    //      venv: "app/env"
-    //    }
-    //  },
+    {
+      method: "fs.link",
+      params: {
+        venv: "app/env"
+      }
+    },
     {
       method: "notify",
       params: {
