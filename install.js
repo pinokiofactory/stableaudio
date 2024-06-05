@@ -37,6 +37,7 @@ module.exports = {
     },
     // libsndfile.dylib handling
     {
+      when: "{{platform === 'darwin'}}",
       method: "fs.copy",
       params: {
         src: "{{path.resolve(cwd, 'app/temp/lib/libsndfile.dylib')}}",
