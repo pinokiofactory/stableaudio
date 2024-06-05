@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
   version: "1.5",
-  title: "StableAudio Open",
+  title: "StableAudio",
   description: "An Open Source Model for Audio Samples and Sound Design https://stability.ai/news/introducing-stable-audio-open",
   icon: "icon.jpeg",
   menu: async (kernel) => {
